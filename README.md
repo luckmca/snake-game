@@ -1,5 +1,5 @@
 Snake-Game
-Projeto Snake Game, desenvolvido em JS, HTM e CSS puro, aula ministrada por Gabriela Oliveira pela DIO.
+Projeto Snake Game, desenvolvido em JS, HTM e CSS puro, aula ministrada por Gabriela Pinheiro pela DIO.
 
 Fiz pequenas alterações para fins visuais.
 
