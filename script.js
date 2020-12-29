@@ -22,7 +22,7 @@ let food = {
 
 function criarBG() {      //função que cria o background
 
-    context.fillStyle = "lightgreen";
+    context.fillStyle = "black";
     context.fillRect(0, 0, 16 * box, 16 * box);
 
 }
@@ -33,7 +33,7 @@ function criarBG() {      //função que cria o background
 function criarCobrinha(){
 
     for (i=0; i < snake.length; i++){
-        context.fillStyle = "black";
+        context.fillStyle = "white";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 
@@ -55,21 +55,12 @@ function update (event){
 
 // fazendo o loop da cobrinha com o if
 function iniciarJogo(){
+
     if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
     if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
     if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
     if(snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;
-
-    if (snakeX =! food.x || snakeY != food.y){
-        snake.pop();
-    }
-
-    else{
-
-        food.x = Math.floor(Math.random() * 15 + 1) * box; 
-        food.y = Math.floor(Math.random() * 15 + 1) * box;
-    }
-
+    
     
     criarBG(); 
     criarCobrinha();
@@ -86,7 +77,18 @@ function iniciarJogo(){
     if(direction == "up") snakeY -= box; //pra cima diminui uma box
     if(direction == "down") snakeY += box; //pra baixo aumenda uma box
     
-    snake.pop();  //pop retira o elemento do array
+    if(snakeX != food.x || snakeY != food.y){
+        snake.pop();
+    }
+
+    else{
+
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
+
+    
+   
 
     let newHead = {
         x: snakeX,
